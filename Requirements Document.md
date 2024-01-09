@@ -9,7 +9,9 @@ Develop a system that takes in a blood smear images and classifies those images 
 - Design an user interface for the medical practitioners to effectively use the system.
 ## Non Functional Requirements
 - The classification has to be accurate **(Accuracy)**
-- The system should analyse the image and give the results quickly **(Performance)**
+- The system should analyze the image and give the results quickly **(Performance)**
 - Easily accessible user interface must be provided for the practitioners to use the system **(Accessibility)**
 - The system should be compatible with various image formats used in medical imaging **(Compatibility)**
 - The system should comply with medical regulations and standards **(Compliance)**
+### Use Case Diagram:
+https://drive.google.com/file/d/1G8FZTBF5r2H9Q11wiw99W6-QGApJ4g_Q/view?usp=drive_link
