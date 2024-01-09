@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Group {
+static class Group {
     String[] members;
     String size;
     
@@ -13,7 +13,7 @@ class Group {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter member names:");
         for(int i = 0; i < size; i++){
-            members[i] = sc.next();
+            this.members[i] = sc.next();
         }
     }
     
