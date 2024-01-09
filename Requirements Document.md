@@ -14,4 +14,4 @@ Develop a system that takes in a blood smear images and classifies those images 
 - The system should be compatible with various image formats used in medical imaging **(Compatibility)**
 - The system should comply with medical regulations and standards **(Compliance)**
 ### Use Case Diagram:
-![UseCaseDiagram](https://drive.google.com/file/d/1G8FZTBF5r2H9Q11wiw99W6-QGApJ4g_Q/view?usp=drive_link)
+![UseCaseDiagram](https://github.com/PradhipJ/Freshers-Bootcamp/assets/96421552/6577ce1b-827d-4f3e-969f-84787fe5cb56)
