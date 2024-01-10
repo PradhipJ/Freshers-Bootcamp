@@ -1,3 +1,5 @@
+import java.util.stream.Stream;
+import java.util.function.Predicate;
 import java.util.*;
 
 class ConsoleDisplayController {
@@ -10,7 +12,11 @@ class ConsoleDisplayController {
     }
 }
 
-class StartsWithStrategy {
+interface SearchStrategy {
+    public boolean invoke(String item);
+}
+
+class StartsWithStrategy implements SearchStrategy {
     private String startString;
     public void setStartsWith(String key){
         this.startString = key;
@@ -21,10 +27,12 @@ class StartsWithStrategy {
 }
 
 class StringListFilterController {
-    StartsWithStrategy predicate = new StartsWithStrategy();
+    SearchStrategy predicate;
+    public StringListFilterController(SearchStrategy searchStrategyObj){
+        this.predicate = searchStrategyObj;
+    }
     public ArrayList<String> filter(ArrayList<String> stringList){
         ArrayList<String> filteredArray = new ArrayList<>();
-        predicate.setStartsWith("a");
         for(String word: stringList){
             if(predicate.invoke(word)) filteredArray.add(word);
         }
@@ -40,7 +48,10 @@ public class ArrayFilter {
       arr.add("bcd");
       arr.add("acd");
       
-      StringListFilterController stringListFilterControllerObj = new StringListFilterController();
+      StartsWithStrategy searchStrategyObj = new StartsWithStrategy();
+      searchStrategyObj.setStartsWith("a");
+      
+      StringListFilterController stringListFilterControllerObj = new StringListFilterController(searchStrategyObj);
       ArrayList<String> filteredArray = stringListFilterControllerObj.filter(arr);
       
       ConsoleDisplayController consoleDisplayControllerObj = new ConsoleDisplayController();
