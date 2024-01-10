@@ -1,55 +1,50 @@
-import java.util.stream.Stream;
-import java.util.function.Predicate;
 import java.util.*;
 
 class ConsoleDisplayController {
-    private String[] content;
-    public void setContent(String[] msg){
+    private ArrayList<String> content;
+    public void setContent(ArrayList<String> msg){
         this.content = msg;
     }
     public void display(){
-        for(String item: content) System.out.print(item + " ");
+        System.out.print(content.toString());
     }
 }
 
-class Criteria {
-    Predicate<String> checkStringLength(int length){
-        Predicate<String> lengthChecker = word -> word.length() == length;
-        return lengthChecker;
-    } 
-}
-
-class Sorter {
-    String[] sort(String[] arr){
-        String[] backup = Arrays.copyOf(arr, arr.length);
-        Arrays.sort(backup);
-        return backup;
+class StartsWithStrategy {
+    private String startString;
+    public void setStartsWith(String key){
+        this.startString = key;
+    }
+    public boolean invoke(String item){
+        return item.startsWith(startString);
     }
 }
 
-class StringFilter {
-    String[] filterItems(String[] arr, Predicate<String> criteria){
-        return Stream.of(arr)
-              .filter(criteria)
-              .toArray(String[]::new);
+class StringListFilterController {
+    StartsWithStrategy predicate = new StartsWithStrategy();
+    public ArrayList<String> filter(ArrayList<String> stringList){
+        ArrayList<String> filteredArray = new ArrayList<>();
+        predicate.setStartsWith("a");
+        for(String word: stringList){
+            if(predicate.invoke(word)) filteredArray.add(word);
+        }
+        return filteredArray;
     }
-} 
-
+}
 
 public class ArrayFilter {
     public static void main(String args[]) {
-      String[] arr = new String[]{"bcd", "abc", "ab", "abcd"};
+      ArrayList<String> arr = new ArrayList<>();
       
-      StringFilter filterObj = new StringFilter();
+      arr.add("abc");
+      arr.add("bcd");
+      arr.add("acd");
       
-      Criteria criteria = new Criteria();
-      String[] filteredObjects = filterObj.filterItems(arr, criteria.checkStringLength(3));
-      
-      Sorter sorterObj = new Sorter();
-      String[] sortedArray = sorterObj.sort(filteredObjects);
+      StringListFilterController stringListFilterControllerObj = new StringListFilterController();
+      ArrayList<String> filteredArray = stringListFilterControllerObj.filter(arr);
       
       ConsoleDisplayController consoleDisplayControllerObj = new ConsoleDisplayController();
-      consoleDisplayControllerObj.setContent(sortedArray);
+      consoleDisplayControllerObj.setContent(filteredArray);
       consoleDisplayControllerObj.display();
     }
 }
