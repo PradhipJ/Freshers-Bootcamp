@@ -55,10 +55,6 @@ class HTMLConverter implements IConverter {
 abstract class DocumentPart {
     String name;
     Integer[] coordinates;
-    IConverter converter;
-    public DocumentPart(IConverter converter){
-        this.converter = converter;
-    }
     abstract void paint();
     abstract boolean save(String destination);
     abstract void convert(IConverter converter);
