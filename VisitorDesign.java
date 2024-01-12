@@ -61,10 +61,6 @@ abstract class DocumentPart {
 }
 
 class Paragraph extends DocumentPart {
-    public Paragraph(){
-        super(new HTMLConverter());
-    }
-    
     void paint(){
         System.out.println("Painting paragraph");
     }
@@ -83,10 +79,6 @@ class Paragraph extends DocumentPart {
 }
 
 class Hyperlink extends DocumentPart{
-    public Hyperlink(){
-        super(new HTMLConverter());
-    }
-    
     void paint(){
         System.out.println("Painting hyperlink");
     }
@@ -105,10 +97,6 @@ class Hyperlink extends DocumentPart{
 }
 
 class Header extends DocumentPart {
-    public Header(){
-        super(new HTMLConverter());
-    }
-    
     void paint(){
         System.out.println("Painting Header");
     }
@@ -127,10 +115,6 @@ class Header extends DocumentPart {
 }
 
 class Footer extends DocumentPart {
-    public Footer(){
-        super(new HTMLConverter());
-    }
-    
     void paint(){
         System.out.println("Painting Footer");
     }
