@@ -9,8 +9,8 @@ class Dashboard implements IObserver{
     public void update(String message){
         this.message = message;
     }
-    public void getStatus(){
-        System.out.println(this.message);
+    public String getStatus(){
+        return this.message;
     }
 }
 
