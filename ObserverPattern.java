@@ -8,7 +8,9 @@ class Dashboard implements IObserver{
     String message;
     public void update(String message){
         this.message = message;
-        System.out.println("Thread state changed to " + message);
+    }
+    public void getStatus(){
+        System.out.println(this.message);
     }
 }
 
@@ -71,6 +73,7 @@ public class ObserverPattern {
       t.start();
       t.abort();
       t.sleep();
+      dashboard.getStatus();
       t.suspend();
       t.unsubscribe(dashboard);
     }
