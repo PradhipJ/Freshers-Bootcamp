@@ -23,13 +23,17 @@ vector<int> StringCalculator::extractNumbers(const string& numbers) {
     string token;
 
     while (getline(ss, token, ',')) {
-        if (!token.empty()) {
-            int num = stoi(token);
-            if (num < 0) {
-                throw invalid_argument("Negatives are not allowed.");
-            }
-            else if (num < 1000) {
-                numbersArr.push_back(num);
+        istringstream tokenStream(token);
+        string subToken;
+        while (getline(tokenStream, subToken, '\n')) {
+            if (!subToken.empty()) {
+                int num = stoi(subToken);
+                if (num < 0) {
+                    throw invalid_argument("Negatives are not allowed.");
+                }
+                else if (num < 1000) {
+                    numbersArr.push_back(num);
+                }
             }
         }
     }

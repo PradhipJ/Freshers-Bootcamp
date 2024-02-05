@@ -68,3 +68,15 @@ TEST(StringCalculatorAddTests, ExpectedSumIgnoringFourDigitNumbers) {
 	//Assert
 	ASSERT_EQ(expectedResult, actualResult);
 }
+
+TEST(StringCalculatorAddTests, ExpectedSumForNewlineDelimiter) {
+	//Arrange
+	int expectedResult = 6;
+	string input = "1\n2,3";
+
+	//Act
+	int actualResult = StringCalculator::addNumbers(input);
+
+	//Assert
+	ASSERT_EQ(expectedResult, actualResult);
+}
