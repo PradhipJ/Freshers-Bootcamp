@@ -80,3 +80,15 @@ TEST(StringCalculatorAddTests, ExpectedSumForNewlineDelimiter) {
 	//Assert
 	ASSERT_EQ(expectedResult, actualResult);
 }
+
+TEST(StringCalculatorAddTests, ExpectedSumAfterChangingDelimiters) {
+	//Arrange
+	int expectedResult = 3;
+	string input = "//;\n1;2";
+
+	//Act
+	int actualResult = StringCalculator::addNumbers(input);
+
+	//Assert
+	ASSERT_EQ(expectedResult, actualResult);
+}
