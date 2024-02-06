@@ -51,6 +51,7 @@ We have a problem when a new demand emerges, like the necessity for a device tha
 Using multiple inheritance appears to be one possible option. We can easily combine the features of printing and scanning into one single entity by letting the new class, `PrintScanner`, inherit from both `Printer` and `Scanner`. This method offers a direct mapping of the issue domain to the object-oriented paradigm, making it initially seem natural and simple.
 ## The Diamond Dilemma
 ![DiamondProblem](https://github.com/PradhipJ/Freshers-Bootcamp/assets/96421552/620ee0df-8049-431b-8e01-05e38a040307)
+
 One important question that comes up when we instantiate a `PrintScanner` object is: **How many instances of the Device class are created?** The answer might not be obvious right away because inheritance is hierarchical. The possibility of having duplicate instances of a device is high because Printer and Scanner are the two direct parents who inherit from Device.
 
 In addition, the issue of method resolution in the `PrintScanner` class is still open. **Should `PrintScanner` yield to the functionality contained in Printer or Scanner when calling device-specific methods, such `getDeviceId()`?** The robustness and clarity of our software architecture are undermined by the ambiguity caused by the lack of a clear resolution strategy.
@@ -123,6 +124,7 @@ Rather of relying on the painstaking details of multiple inheritance, which freq
 
 ### Reframing our Design
 ![PrintScannerDesign](https://github.com/PradhipJ/Freshers-Bootcamp/assets/96421552/4a00f2ca-15ca-4ccc-a0e6-085a23321bac)
+
 A key component of our design is the Composite Pattern, which enables us to handle individual and composite devices equally. We create a uniform contract for printing and scanning operations, independent of the underlying device implementation, by implementing interfaces like `IPrinter` and `IScanner`.
 ```c++
 class IPrinter{
